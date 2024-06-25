@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+<comment />
+<entry key="memberAll">
+ SELECT
+*
+from member
+WHERE memberStatus = 'y'
+</entry>
+
+<entry key="memberModify">
+UPDATE member
+    SET memberNAME = ?
+WHERE memberNum = ?
+</entry>
+
+<entry key="memberDelete">
+UPDATE member
+    SET memberStatus = 'n'
+WHERE memberNum = ?
+
+</entry>
+
+<entry key="memberFindByName">
+SELECT
+        memberNum,
+        memberName
+FROM member
+WHERE memberName = ?
+AND memberStatus = 'y'
+    </entry>
+
+    <entry key="memberFindById">
+SELECT
+        memberNum,
+        memberName
+FROM member
+WHERE memberNum = ?
+AND memberStatus = 'y'
+    </entry>
+<entry key="memberInsert">
+INSERT member
+(
+    memberNum,
+    memberName
+)VALUES(
+?,
+?
+)
+    </entry>
+    <entry key="bookRegistration">
+        INSERT INTO book (bookName) VALUES (?)
+    </entry>
+
+    <entry key="bookNameSearch">
+        SELECT
+        bookNum ,
+        bookName ,
+        bookStatus
+        FROM book
+        WHERE bookName = ?
+        AND bookStatus = 'y'
+    </entry>
+
+    <entry key="bookModify">
+        UPDATE book
+        SET bookName = ?
+        WHERE bookName = ?
+
+    </entry>
+
+    <entry key="bookDelete">
+        UPDATE book
+        SET bookStatus = 'N'
+        WHERE bookName = ?
+    </entry>
+
+    <entry key="registeredBookList">
+        SELECT
+        bookNum ,
+        bookName ,
+        bookStatus
+        FROM book
+        WHERE bookStatus = 'y'
+    </entry>
+
+
+</properties>
+
+
